@@ -45,7 +45,7 @@ char MQTTmessageBuffer[100];
 json.printTo(MQTTmessageBuffer, sizeof(MQTTmessageBuffer));
  
  }
-if (strcmp(topic,"/talli/light")==0){
+if (strcmp(topic,mqtt_topic)==0){
  if ((char)payload[0] == '1') {
     digitalWrite(D1, LOW);   // Turn the LED on (Note that LOW is the voltage level
     // but actually the LED is on; this is because
