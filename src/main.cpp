@@ -40,10 +40,10 @@ void callback(char* topic, byte* payload, int length) {
    StaticJsonBuffer<200> jsonBuffer;
    JsonObject& json = jsonBuffer.createObject();
    json["type"] = "lightswitch";
-  json["topic"] = mqtt_topic;
+   json["topic"] = mqtt_topic;
 char MQTTmessageBuffer[100];
 json.printTo(MQTTmessageBuffer, sizeof(MQTTmessageBuffer));
- 
+ client.publish("/query", MQTTmessageBuffer);
  }
 if (strcmp(topic,mqtt_topic)==0){
  if ((char)payload[0] == '1') {
